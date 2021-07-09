@@ -56,9 +56,9 @@ public class BringgUIService {
     }
 
 
-    public final void clean() {
+    public final void doSettingFlow() {
         settingsPage = pageFactory.createPage(PageFactory.Page.SETTING);
-        settingsPage.clean();
+        settingsPage.doSettingFlow();
     }
 
     public void enterSummerDressMenu(ShoppingStoreMenu.ShopMenu shopMenu) {

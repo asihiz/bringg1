@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 public class LandingPage implements Pageable {
 
-    private static final By PROFILE_DROW_DOWN = By.className("dropdown-toggle");
+    public static final By PROFILE_DROW_DOWN = By.className("dropdown-toggle");
     private static final By LIST_ITEM_LOCATOR = By.className("ng-binding");
 
     public LandingPage(){
@@ -18,7 +18,7 @@ public class LandingPage implements Pageable {
     public void prepareElements() {
     }
 
-    public final void enterSetting(final String value){
+    public final void enterSetting(String value){
         decorator.handleDropDown(driver.findElement(PROFILE_DROW_DOWN), LIST_ITEM_LOCATOR, value);
     }
 

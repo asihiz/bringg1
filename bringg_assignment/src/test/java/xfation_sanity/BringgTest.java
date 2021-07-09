@@ -32,7 +32,7 @@ public class BringgTest extends BaseTest {
     public void loginTest() {
         bringgUIService.login(CLIENT_USER, CLIENT_PASSWORD);
         bringgUIService.enterSetting("Settings");
-        bringgUIService.clean();
+        bringgUIService.doSettingFlow();
 
     }
 

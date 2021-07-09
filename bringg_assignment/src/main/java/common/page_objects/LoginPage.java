@@ -49,10 +49,16 @@ public class LoginPage implements Pageable, Pollable {
 
     @Override
     public boolean until() throws Exception {
-        if(driver.getCurrentUrl().equalsIgnoreCase("https://app.bringg.com/#/map/")){
+        try {
+            driver.findElement(LandingPage.PROFILE_DROW_DOWN);
             return true;
+        } catch (Exception e){
+            return false;
         }
-        return false;
+//        if(driver.getCurrentUrl().equalsIgnoreCase("https://app.bringg.com/#/map/")){
+//            return true;
+//        }
+//        return false;
 
     }
 

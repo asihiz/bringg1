@@ -3,7 +3,9 @@ package common.selenium_services.decorator;
 import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.Set;
@@ -56,8 +58,9 @@ public final class SeleniumDecorator implements WebDriver{
 
     public void handleDropDown(WebElement ddl, By listItemLocator, String value){
         ddl.click();
-        WebElement iem = findElementByTextInList(listItemLocator, value);
-        iem.click();
+        WebElement item = findElementByTextInList(listItemLocator, value);
+        waitForElement(item);
+        item.click();
     }
 
     public void handleDropDown(WebElement _ddl, String value){
@@ -73,6 +76,27 @@ public final class SeleniumDecorator implements WebDriver{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+    }
+
+    public WebElement scrollAndReturn(WebElement element){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return element;
+
+    }
+
+    public void waitForElement(WebElement we){
+
+        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+                return we.isDisplayed();
+            }
+        });
 
     }
 
