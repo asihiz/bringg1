@@ -29,7 +29,9 @@ public final class PageFactory implements PageVerifiable {
 
         HOME (HomePage.class, true),
         LOGIN (LoginPage.class, true),
-        SHOPPING_STORE_MENU (ShoppingStoreMenu.class, true),
+        LANDING (LandingPage.class, true),
+        SETTING (SettingsPage.class, true),
+
         SUMMER_DRESS (SummerDressPage.class, true);
 //        PURCHASE_APPROVAL (purchaseApprovalPage.class, false);
 

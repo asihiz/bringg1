@@ -2,15 +2,14 @@ package common.building_blocks;
 
 
 import common.page_objects.*;
-import common.page_objects.*;
 import common.selenium_services.page.PageFactory;
 
 /**
  * Created by asih on 8/31/2017.
  */
-public class XFashionUIService {
+public class BringgUIService {
 
-    private static final XFashionUIService INSTANCE = new XFashionUIService();
+    private static final BringgUIService INSTANCE = new BringgUIService();
 
     private PageFactory pageFactory = new PageFactory();
 
@@ -18,13 +17,16 @@ public class XFashionUIService {
 
     private HomePage homePage;
 
-    private ShoppingStoreMenu shoppingStoreMenu;
+    private LandingPage landingPage;
+
+    private SettingsPage settingsPage;
+
 
     private SummerDressPage summerDressPage;
 
 //    private purchaseApprovalPage purchaseApprovalPage;
 
-    private XFashionUIService() {
+    private BringgUIService() {
         // Avoid reflection calls on Singleton(
         // Private constructor can be called by reflection
         // Solve thread safe issues
@@ -33,28 +35,34 @@ public class XFashionUIService {
         }
     }
 
-    public static XFashionUIService getInstance() {
+    public static BringgUIService getInstance() {
         return INSTANCE;
     }
 
 
-    public final void signIn() {
-        homePage = pageFactory.createPage(PageFactory.Page.HOME);
-        homePage.signIn();
-    }
+//    public final void signIn() {
+//        homePage = pageFactory.createPage(PageFactory.Page.HOME);
+//        homePage.signIn();
+//    }
 
     public void login(String email, String password) {
         loginPage = pageFactory.createPage(PageFactory.Page.LOGIN);
         loginPage.login(email, password);
     }
 
-    public final void signUp(String email, String password) {
-        signIn();
-        login(email, password);
+    public final void enterSetting(String value) {
+        landingPage = pageFactory.createPage(PageFactory.Page.LANDING);
+        landingPage.enterSetting(value);
+    }
+
+
+    public final void clean() {
+        settingsPage = pageFactory.createPage(PageFactory.Page.SETTING);
+        settingsPage.clean();
     }
 
     public void enterSummerDressMenu(ShoppingStoreMenu.ShopMenu shopMenu) {
-        shoppingStoreMenu = pageFactory.createPage(PageFactory.Page.SHOPPING_STORE_MENU);
+//        shoppingStoreMenu = pageFactory.createPage(PageFactory.Page.SHOPPING_STORE_MENU);
         shopMenu.enterSummerDressMenu(shopMenu);
     }
 

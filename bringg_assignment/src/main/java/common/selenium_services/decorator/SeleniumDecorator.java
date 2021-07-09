@@ -3,6 +3,7 @@ package common.selenium_services.decorator;
 import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 import java.util.Set;
@@ -51,6 +52,28 @@ public final class SeleniumDecorator implements WebDriver{
         Actions builder = new Actions(driver);
         builder.moveToElement(we).perform();
         driver.findElement(clickedLocator).click();
+    }
+
+    public void handleDropDown(WebElement ddl, By listItemLocator, String value){
+        ddl.click();
+        WebElement iem = findElementByTextInList(listItemLocator, value);
+        iem.click();
+    }
+
+    public void handleDropDown(WebElement _ddl, String value){
+        _ddl.click();
+        Select ddl = new Select(_ddl);
+        ddl.selectByValue(value);
+    }
+
+    public void scroll(WebElement element){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public SeleniumDecorator clear(WebElement we){
