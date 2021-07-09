@@ -22,6 +22,10 @@ public class LandingPage implements Pageable {
         decorator.handleDropDown(driver.findElement(PROFILE_DROW_DOWN), LIST_ITEM_LOCATOR, value);
     }
 
+    public void clickHeader(HeaderItem headerItem) {
+        driver.findElement(headerItem.locator).click();
+    }
+
     @Override
     public String getPageUniqueIdentifier() {
         return "https://app.bringg.com/#/map/";
@@ -29,6 +33,14 @@ public class LandingPage implements Pageable {
 
     public enum HeaderItem {
 
-        SETTING;
+        DRIVERS (By.linkText("Drivers"));
+
+        private By locator;
+
+        HeaderItem(By locator){
+            this.locator = locator;
+        }
+
+
     }
 }

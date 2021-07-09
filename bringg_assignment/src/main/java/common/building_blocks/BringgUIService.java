@@ -22,7 +22,10 @@ public class BringgUIService {
     private SettingsPage settingsPage;
 
 
-    private SummerDressPage summerDressPage;
+    private DriversPage driversPage;
+
+    private AddItemPage addItemPage;
+
 
 //    private purchaseApprovalPage purchaseApprovalPage;
 
@@ -40,11 +43,6 @@ public class BringgUIService {
     }
 
 
-//    public final void signIn() {
-//        homePage = pageFactory.createPage(PageFactory.Page.HOME);
-//        homePage.signIn();
-//    }
-
     public void login(String email, String password) {
         loginPage = pageFactory.createPage(PageFactory.Page.LOGIN);
         loginPage.login(email, password);
@@ -55,21 +53,36 @@ public class BringgUIService {
         landingPage.enterSetting(value);
     }
 
-
-    public final void doSettingFlow() {
-        settingsPage = pageFactory.createPage(PageFactory.Page.SETTING);
-        settingsPage.doSettingFlow();
+    public final void clickHeader(LandingPage.HeaderItem headerItem) {
+        landingPage = pageFactory.createPage(PageFactory.Page.LANDING);
+        landingPage.clickHeader(headerItem);
     }
+
+    public final void cleanAccount() {
+        settingsPage = pageFactory.createPage(PageFactory.Page.SETTING);
+        settingsPage.cleanAccount();
+    }
+
+    public final void addTeam(final String name, final String address) {
+        driversPage = pageFactory.createPage(PageFactory.Page.DRIVERS);
+        driversPage.addTeam();
+        addItemPage = pageFactory.createPage(PageFactory.Page.ADD_ITEM);
+        addItemPage.addTeam(name, address);
+    }
+
+    public final void verifyTeam(final String name, final String address) {
+        driversPage = pageFactory.createPage(PageFactory.Page.DRIVERS);
+        driversPage.verifyTeamWasAdded(name, address);
+    }
+
+
 
     public void enterSummerDressMenu(ShoppingStoreMenu.ShopMenu shopMenu) {
 //        shoppingStoreMenu = pageFactory.createPage(PageFactory.Page.SHOPPING_STORE_MENU);
         shopMenu.enterSummerDressMenu(shopMenu);
     }
 
-    public final void doShoppingFlow() {
-        summerDressPage = pageFactory.createPage(PageFactory.Page.SUMMER_DRESS);
-        summerDressPage.doShoppingFlow();
-    }
+
 
     public final void approvePurchaseDiscount() {
 //        purchaseApprovalPage = pageFactory.createPage(PageFactory.Page.PURCHASE_APPROVAL);

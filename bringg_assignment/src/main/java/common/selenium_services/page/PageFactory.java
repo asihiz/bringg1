@@ -31,8 +31,9 @@ public final class PageFactory implements PageVerifiable {
         LOGIN (LoginPage.class, true),
         LANDING (LandingPage.class, true),
         SETTING (SettingsPage.class, true),
+        ADD_ITEM (AddItemPage.class, true),
 
-        SUMMER_DRESS (SummerDressPage.class, true);
+        DRIVERS (DriversPage.class, true);
 //        PURCHASE_APPROVAL (purchaseApprovalPage.class, false);
 
         private Class<? extends Pageable> clazz;

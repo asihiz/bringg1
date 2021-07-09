@@ -1,6 +1,7 @@
 package xfation_sanity;
 
 import common.building_blocks.BringgUIService;
+import common.page_objects.LandingPage;
 import common.page_objects.ShoppingStoreMenu;
 import common.selenium_services.driver.SeleniumDriver;
 import common.selenium_services.page.PageFactory;
@@ -15,7 +16,8 @@ import org.junit.runners.MethodSorters;
 public class BringgTest extends BaseTest {
 
     private BringgUIService bringgUIService = BringgUIService.getInstance();
-//    private PageFactory pageFactory = new PageFactory();
+
+    private PageFactory pageFactory = new PageFactory();
 
 
     @BeforeClass
@@ -29,12 +31,26 @@ public class BringgTest extends BaseTest {
     }
 
     @Test
-    public void loginTest() {
+    public void scenarioOneTest() {
+        bringgUIService.login(CLIENT_USER, CLIENT_PASSWORD);
+        pageFactory.createPage(PageFactory.Page.LANDING);
+    }
+
+    @Test
+    public void cleenUpAccountTest() {
         bringgUIService.login(CLIENT_USER, CLIENT_PASSWORD);
         bringgUIService.enterSetting("Settings");
-        bringgUIService.doSettingFlow();
-
+        bringgUIService.cleanAccount();
     }
+
+    @Test
+    public void createNewTeamTest() {
+        bringgUIService.login(CLIENT_USER, CLIENT_PASSWORD);
+        bringgUIService.clickHeader(LandingPage.HeaderItem.DRIVERS);
+        bringgUIService.addTeam("New Item", "64444, Saudi Arabia");
+        bringgUIService.verifyTeam("New Item", "64444, Saudi Arabia");
+    }
+
 
 //    @Test
 //    public void doShoppingFlowTest() {

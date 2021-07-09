@@ -56,10 +56,26 @@ public final class SeleniumDecorator implements WebDriver{
         driver.findElement(clickedLocator).click();
     }
 
+    public boolean assertText(String text) {
+        try {
+            driver.findElement(By.xpath("//*[contains(text(),'" + text +"')]"));
+            return true;
+        } catch (Exception e) {
+            logger.info("Text " + text + " is on screen not as expected");
+            return false;
+        }
+    }
+
+
     public void handleDropDown(WebElement ddl, By listItemLocator, String value){
         ddl.click();
         WebElement item = findElementByTextInList(listItemLocator, value);
         waitForElement(item);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         item.click();
     }
 
@@ -79,7 +95,7 @@ public final class SeleniumDecorator implements WebDriver{
 
     }
 
-    public WebElement scrollAndReturn(WebElement element){
+    public WebElement scrollElement(WebElement element){
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         try {
             Thread.sleep(500);
