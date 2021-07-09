@@ -10,9 +10,11 @@ public class DriversPage implements Pageable {
 
     private static final By TEAM_LOCATOR = By.linkText("Teams");
     private static final By ADD_TEAM = By.xpath("/html/body/div[3]/div[2]/div/ng-view/div/div[1]/div[2]/div/button");
+    private static final By ADD_DRIVER = By.id("btn_add_driver");
 
 
     private WebElement teams;
+    private WebElement addDriver;
 
     public DriversPage(){
 
@@ -33,6 +35,10 @@ public class DriversPage implements Pageable {
         Assert.assertEquals(decorator.assertText(name), true);
         Assert.assertEquals(decorator.assertText(address), true);
 
+    }
+
+    public final void addDriver(){
+        driver.findElement(ADD_DRIVER).click();
     }
 
     @Override

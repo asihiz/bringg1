@@ -1,6 +1,7 @@
 package xfation_sanity;
 
 import common.building_blocks.BringgUIService;
+import common.page_objects.AddDriverPage;
 import common.page_objects.LandingPage;
 import common.page_objects.ShoppingStoreMenu;
 import common.selenium_services.driver.SeleniumDriver;
@@ -49,6 +50,13 @@ public class BringgTest extends BaseTest {
         bringgUIService.clickHeader(LandingPage.HeaderItem.DRIVERS);
         bringgUIService.addTeam("New Item", "64444, Saudi Arabia");
         bringgUIService.verifyTeam("New Item", "64444, Saudi Arabia");
+    }
+
+    @Test
+    public void createDriveTest() {
+        bringgUIService.login(CLIENT_USER, CLIENT_PASSWORD);
+        bringgUIService.clickHeader(LandingPage.HeaderItem.DRIVERS);
+        bringgUIService.addDriver(CLIENT_USER, CLIENT_PASSWORD, "Asi the driver", AddDriverPage.ValidatorOption.EMAIL_PASSWORD);
     }
 
 

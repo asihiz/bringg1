@@ -21,13 +21,11 @@ public class BringgUIService {
 
     private SettingsPage settingsPage;
 
-
     private DriversPage driversPage;
 
     private AddItemPage addItemPage;
 
-
-//    private purchaseApprovalPage purchaseApprovalPage;
+    private AddDriverPage addDriverPage;
 
     private BringgUIService() {
         // Avoid reflection calls on Singleton(
@@ -73,6 +71,13 @@ public class BringgUIService {
     public final void verifyTeam(final String name, final String address) {
         driversPage = pageFactory.createPage(PageFactory.Page.DRIVERS);
         driversPage.verifyTeamWasAdded(name, address);
+    }
+
+    public final void addDriver(String username, String password, String driverName, AddDriverPage.ValidatorOption vo){
+        driversPage = pageFactory.createPage(PageFactory.Page.DRIVERS);
+        driversPage.addDriver();
+        addDriverPage = pageFactory.createPage(PageFactory.Page.ADD_DRIVER);
+        addDriverPage.addDriver(username, password, driverName, vo);
     }
 
 

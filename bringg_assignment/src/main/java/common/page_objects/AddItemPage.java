@@ -32,7 +32,7 @@ public class AddItemPage implements Pageable {
 
     public final void addTeam(final String name, final String address){
         decorator.clear(this.name).senkKeys(this.name, name);
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(ADD_LOCATOR)).click();
+        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(ADDRESS_LOCATOR)).click();
         decorator.clear(this.address).senkKeys(this.address, address);
         this.address.sendKeys(Keys.ENTER);
         add.click();
