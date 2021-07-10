@@ -14,6 +14,14 @@ public class AddDriverPage implements Pageable {
     private static final By USER_NAME_LOCATOR = By.id("userEmail");
     private static final By PASSWORD_LOCATOR = By.id("userPassword");
     private static final By ADD_DRIVER_LOCATOR = By.linkText("Add Driver");
+    private static final By CREATED_LOCATOR = By.linkText("OK");
+    private static final By CREATED_LOCATOR1 = By.xpath("/html/body/div[1]/div/div/div/div[3]/button");
+    private static final By CREATED_LOCATOR2 = By.className("close");
+
+
+
+
+
 
     private WebElement dropdown;
     private WebElement driverName;
@@ -41,7 +49,7 @@ public class AddDriverPage implements Pageable {
         decorator.clear(this.username).senkKeys(this.username, username);
         decorator.clear(this.password).senkKeys(this.password, password);
         add.click();
-//        DriversPage.numOfDrivers++;
+        driver.findElement(CREATED_LOCATOR2).click();
     }
 
 

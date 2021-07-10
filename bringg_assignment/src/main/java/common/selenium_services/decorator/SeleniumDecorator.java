@@ -58,7 +58,7 @@ public final class SeleniumDecorator implements WebDriver{
         driver.findElement(clickedLocator).click();
     }
 
-    public boolean assertText(String text) {
+    public boolean  assertText(String text) {
         try {
             driver.findElement(By.xpath("//*[contains(text(),'" + text +"')]"));
             return true;

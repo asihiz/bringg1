@@ -82,9 +82,9 @@ public class BringgUIService {
         addDriverPage.addDriver(username, password, driverName, vo);
     }
 
-    public final void verifyDriverWasAdded(String driverName, String username) {
+    public final void verifyDriverWasAdded(String driverName) {
         driversPage = pageFactory.createPage(PageFactory.Page.DRIVERS);
-        driversPage.verifyTeamWasAdded(driverName, username);
+        driversPage.verifyDriverWasAdded(driverName);
     }
 
     public final void addOrder(String title, String team, String driver, String address){

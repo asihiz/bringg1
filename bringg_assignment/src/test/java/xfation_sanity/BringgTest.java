@@ -53,21 +53,20 @@ public class BringgTest extends BaseTest {
         bringgUIService.clickHeader(LandingPage.HeaderItem.DRIVERS);
         bringgUIService.addTeam("New Item", "64444, Saudi Arabia");
         bringgUIService.verifyTeam("New Item", "64444, Saudi Arabia");
-        int a = 0;
     }
 
     @Test
     public void createDriveTest() {
         bringgUIService.login(CLIENT_USER, CLIENT_PASSWORD);
         bringgUIService.clickHeader(LandingPage.HeaderItem.DRIVERS);
-        for(int i = 0; i <= numberOfDrivers; i++) {
+        for(int i = 0; i <= numberOfDrivers - 1; i++) {
 
             String randomUser = GeneralUtils.getRandomEmail();
             String password = GeneralUtils.getRandomString();
             String driverName = GeneralUtils.getRandomString();
 
             bringgUIService.addDriver(randomUser, password, driverName, AddDriverPage.ValidatorOption.EMAIL_PASSWORD);
-            bringgUIService.verifyDriverWasAdded(randomUser, driverName);
+            bringgUIService.verifyDriverWasAdded(driverName);
         }
     }
 

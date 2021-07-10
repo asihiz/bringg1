@@ -22,7 +22,7 @@ public class DriversPage implements Pageable {
 
     @Override
     public void prepareElements() {
-         teams = SeleniumDecorator.getInstance().getDriver().findElement(TEAM_LOCATOR);
+        teams = SeleniumDecorator.getInstance().getDriver().findElement(TEAM_LOCATOR);
     }
 
     public final void addTeam(){
@@ -31,14 +31,12 @@ public class DriversPage implements Pageable {
     }
 
     public final void verifyTeamWasAdded(final String name, final String address){
-        driver.navigate().refresh();
         Assert.assertTrue(decorator.assertText(name));
         Assert.assertTrue(decorator.assertText(address));
     }
 
-    public void verifyDriverWasAdded(String driverName, String username){
+    public void verifyDriverWasAdded(String driverName){
         Assert.assertTrue(decorator.assertText(driverName));
-        Assert.assertTrue(decorator.assertText(username));
     }
 
     public final void addDriver(){

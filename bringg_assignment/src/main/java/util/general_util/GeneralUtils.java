@@ -43,7 +43,7 @@ public class GeneralUtils {
 			salt.append(SALTCHARS.charAt(index));
 		}
 		String saltStr = salt.toString();
-		return saltStr + "@gmail.com" ;
+		return saltStr ;
 	}
 
 	public static String getRandomEmail() {
