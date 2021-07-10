@@ -82,6 +82,11 @@ public class BringgUIService {
         addDriverPage.addDriver(username, password, driverName, vo);
     }
 
+    public final void verifyDriverWasAdded(String driverName, String username) {
+        driversPage = pageFactory.createPage(PageFactory.Page.DRIVERS);
+        driversPage.verifyTeamWasAdded(driverName, username);
+    }
+
     public final void addOrder(String title, String team, String driver, String address){
         planningPage = pageFactory.createPage(PageFactory.Page.PLANNING);
         planningPage.addOrder();
@@ -94,18 +99,5 @@ public class BringgUIService {
         planningPage.verifyOrder();
     }
 
-
-
-    public void enterSummerDressMenu(ShoppingStoreMenu.ShopMenu shopMenu) {
-//        shoppingStoreMenu = pageFactory.createPage(PageFactory.Page.SHOPPING_STORE_MENU);
-        shopMenu.enterSummerDressMenu(shopMenu);
-    }
-
-
-
-    public final void approvePurchaseDiscount() {
-//        purchaseApprovalPage = pageFactory.createPage(PageFactory.Page.PURCHASE_APPROVAL);
-//        purchaseApprovalPage.approveDiscount();
-    }
 
 }

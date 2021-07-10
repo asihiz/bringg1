@@ -11,7 +11,7 @@ public class DriversPage implements Pageable {
     private static final By TEAM_LOCATOR = By.linkText("Teams");
     private static final By ADD_TEAM = By.xpath("/html/body/div[3]/div[2]/div/ng-view/div/div[1]/div[2]/div/button");
     private static final By ADD_DRIVER = By.id("btn_add_driver");
-
+//    private static final By DRIVER_TABLE_ITEM = By.className("ng-scope");;
 
     private WebElement teams;
     private WebElement addDriver;
@@ -32,9 +32,13 @@ public class DriversPage implements Pageable {
 
     public final void verifyTeamWasAdded(final String name, final String address){
         driver.navigate().refresh();
-        Assert.assertEquals(decorator.assertText(name), true);
-        Assert.assertEquals(decorator.assertText(address), true);
+        Assert.assertTrue(decorator.assertText(name));
+        Assert.assertTrue(decorator.assertText(address));
+    }
 
+    public void verifyDriverWasAdded(String driverName, String username){
+        Assert.assertTrue(decorator.assertText(driverName));
+        Assert.assertTrue(decorator.assertText(username));
     }
 
     public final void addDriver(){

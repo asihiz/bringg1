@@ -15,21 +15,11 @@ public class AddDriverPage implements Pageable {
     private static final By PASSWORD_LOCATOR = By.id("userPassword");
     private static final By ADD_DRIVER_LOCATOR = By.linkText("Add Driver");
 
-
-
-
-
-//    private static final By ADD_TEAM = By.xpath("/html/body/div[3]/div[2]/div/ng-view/div/div[1]/div[2]/div/button");
-//    private static final By ADD_DRIVER = By.linkText("Add Driver");
-
-
     private WebElement dropdown;
     private WebElement driverName;
     private WebElement add;
     private WebElement username;
     private WebElement password;
-
-
 
     public AddDriverPage(){
 
@@ -51,6 +41,7 @@ public class AddDriverPage implements Pageable {
         decorator.clear(this.username).senkKeys(this.username, username);
         decorator.clear(this.password).senkKeys(this.password, password);
         add.click();
+//        DriversPage.numOfDrivers++;
     }
 
 

@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class AddItemPage implements Pageable {
 
     private static final By NAME_LOCATOR = By.id("teamName");
-    private static final By ADDRESS_LOCATOR = By.xpath("//*[@id=\"teamAddress\"]/input[1]");
+    private static final By ADDRESS_LOCATOR = By.cssSelector("#teamAddress > div.ui-select-match.ng-scope");
     private static final By ADD_LOCATOR = By.linkText("Add Team");
 
 
@@ -32,8 +32,7 @@ public class AddItemPage implements Pageable {
 
     public final void addTeam(final String name, final String address){
         decorator.clear(this.name).senkKeys(this.name, name);
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(ADDRESS_LOCATOR)).click();
-        decorator.clear(this.address).senkKeys(this.address, address);
+        decorator.senkKeys(this.address, address);
         this.address.sendKeys(Keys.ENTER);
         add.click();
     }

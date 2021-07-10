@@ -9,6 +9,7 @@ import common.selenium_services.page.PageFactory;
 import common.test.BaseTest;
 import org.junit.*;
 import org.junit.runners.MethodSorters;
+import util.general_util.GeneralUtils;
 
 /**
  * Created by asi on 2/19/2017.
@@ -19,6 +20,8 @@ public class BringgTest extends BaseTest {
     private BringgUIService bringgUIService = BringgUIService.getInstance();
 
     private PageFactory pageFactory = new PageFactory();
+
+    private Integer numberOfDrivers = 2;
 
 
     @BeforeClass
@@ -32,7 +35,7 @@ public class BringgTest extends BaseTest {
     }
 
     @Test
-    public void scenarioOneTest() {
+    public void loginTest() {
         bringgUIService.login(CLIENT_USER, CLIENT_PASSWORD);
         pageFactory.createPage(PageFactory.Page.LANDING);
     }
@@ -45,7 +48,7 @@ public class BringgTest extends BaseTest {
     }
 
     @Test
-    public void createNewTeamTest() {
+        public void createNewTeamTest() {
         bringgUIService.login(CLIENT_USER, CLIENT_PASSWORD);
         bringgUIService.clickHeader(LandingPage.HeaderItem.DRIVERS);
         bringgUIService.addTeam("New Item", "64444, Saudi Arabia");
@@ -57,7 +60,15 @@ public class BringgTest extends BaseTest {
     public void createDriveTest() {
         bringgUIService.login(CLIENT_USER, CLIENT_PASSWORD);
         bringgUIService.clickHeader(LandingPage.HeaderItem.DRIVERS);
-        bringgUIService.addDriver(CLIENT_USER, CLIENT_PASSWORD, "Asi the driver", AddDriverPage.ValidatorOption.EMAIL_PASSWORD);
+        for(int i = 0; i <= numberOfDrivers; i++) {
+
+            String randomUser = GeneralUtils.getRandomEmail();
+            String password = GeneralUtils.getRandomString();
+            String driverName = GeneralUtils.getRandomString();
+
+            bringgUIService.addDriver(randomUser, password, driverName, AddDriverPage.ValidatorOption.EMAIL_PASSWORD);
+            bringgUIService.verifyDriverWasAdded(randomUser, driverName);
+        }
     }
 
     @Test
