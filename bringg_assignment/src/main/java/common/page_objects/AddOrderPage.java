@@ -30,7 +30,6 @@ public class AddOrderPage implements Pageable {
     public void prepareElements() {
         title = driver.findElement(TITLE_LOCATOR);
         team = driver.findElement(TEAM_LOCATOR);
-//        driver = driver.findElement(DRIVER_NAME_LOCATOR);
         address = driver.findElement(ADDRESS_LOCATOR);
         add = driver.findElement(ADD_ORDER_LOCATOR);
     }
@@ -40,7 +39,7 @@ public class AddOrderPage implements Pageable {
         decorator.clear(this.title).senkKeys(this.title, title);
         decorator.clear(this.team).senkKeys(this.team, team);
         this.team.sendKeys(Keys.ENTER);
-        this.driver = driver.findElement(DRIVER_NAME_LOCATOR);
+        this.driver = decorator.getDriver().findElement(DRIVER_NAME_LOCATOR);
         decorator.waitForVisibility(this.driver);
         decorator.senkKeys(this.driver, driver);
         this.driver.sendKeys(Keys.ENTER);

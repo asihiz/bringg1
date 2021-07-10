@@ -15,8 +15,5 @@ public interface Pageable {
 
     String getPageUniqueIdentifier() ;
 
-//     <T> T getValidate();
-//
-//     <T> T getActivate();
 
 }

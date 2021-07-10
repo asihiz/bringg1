@@ -1,6 +1,5 @@
 package common.page_objects;
 
-import common.selenium_services.decorator.SeleniumDecorator;
 import common.selenium_services.page.Pageable;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -31,12 +30,12 @@ public class DriversPage implements Pageable {
     }
 
     public final void verifyTeamWasAdded(final String name, final String address){
-        Assert.assertTrue(decorator.assertText(name));
-        Assert.assertTrue(decorator.assertText(address));
+        Assert.assertTrue(decorator.isTextAppears(name));
+        Assert.assertTrue(decorator.isTextAppears(address));
     }
 
     public void verifyDriverWasAdded(String driverName){
-        Assert.assertTrue(decorator.assertText(driverName));
+        Assert.assertTrue(decorator.isTextAppears(driverName));
     }
 
     public final void addDriver(){

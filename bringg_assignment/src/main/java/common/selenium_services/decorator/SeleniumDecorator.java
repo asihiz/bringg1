@@ -58,7 +58,7 @@ public final class SeleniumDecorator implements WebDriver{
         driver.findElement(clickedLocator).click();
     }
 
-    public boolean  assertText(String text) {
+    public boolean isTextAppears(String text) {
         try {
             driver.findElement(By.xpath("//*[contains(text(),'" + text +"')]"));
             return true;
@@ -67,7 +67,6 @@ public final class SeleniumDecorator implements WebDriver{
             return false;
         }
     }
-
 
     public void handleDropDown(WebElement ddl, By listItemLocator, String value){
 
