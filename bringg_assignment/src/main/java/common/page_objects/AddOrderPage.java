@@ -28,11 +28,11 @@ public class AddOrderPage implements Pageable {
 
     @Override
     public void prepareElements() {
-        title = SeleniumDecorator.getInstance().getDriver().findElement(TITLE_LOCATOR);
-        team = SeleniumDecorator.getInstance().getDriver().findElement(TEAM_LOCATOR);
-//        driver = SeleniumDecorator.getInstance().getDriver().findElement(DRIVER_NAME_LOCATOR);
-        address = SeleniumDecorator.getInstance().getDriver().findElement(ADDRESS_LOCATOR);
-        add = SeleniumDecorator.getInstance().getDriver().findElement(ADD_ORDER_LOCATOR);
+        title = driver.findElement(TITLE_LOCATOR);
+        team = driver.findElement(TEAM_LOCATOR);
+//        driver = driver.findElement(DRIVER_NAME_LOCATOR);
+        address = driver.findElement(ADDRESS_LOCATOR);
+        add = driver.findElement(ADD_ORDER_LOCATOR);
     }
 
     public final void addOrder(String title, String team, String driver, String address){
@@ -40,7 +40,7 @@ public class AddOrderPage implements Pageable {
         decorator.clear(this.title).senkKeys(this.title, title);
         decorator.clear(this.team).senkKeys(this.team, team);
         this.team.sendKeys(Keys.ENTER);
-        this.driver = SeleniumDecorator.getInstance().getDriver().findElement(DRIVER_NAME_LOCATOR);
+        this.driver = driver.findElement(DRIVER_NAME_LOCATOR);
         decorator.waitForVisibility(this.driver);
         decorator.senkKeys(this.driver, driver);
         this.driver.sendKeys(Keys.ENTER);

@@ -25,9 +25,9 @@ public class AddItemPage implements Pageable {
 
     @Override
     public void prepareElements() {
-        name = SeleniumDecorator.getInstance().getDriver().findElement(NAME_LOCATOR);
-        address = SeleniumDecorator.getInstance().getDriver().findElement(ADDRESS_LOCATOR);
-        add = SeleniumDecorator.getInstance().getDriver().findElement(ADD_LOCATOR);
+        name = driver.findElement(NAME_LOCATOR);
+        address = driver.findElement(ADDRESS_LOCATOR);
+        add = driver.findElement(ADD_LOCATOR);
     }
 
     public final void addTeam(final String name, final String address){

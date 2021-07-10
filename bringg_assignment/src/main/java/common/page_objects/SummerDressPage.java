@@ -33,7 +33,7 @@ public class SummerDressPage implements Pageable {
 
     @Override
     public void prepareElements() {
-        dressesContainer = SeleniumDecorator.getInstance().getDriver().findElements(DRESSES_CONTAINER_LOCATOR);
+        dressesContainer = driver.findElements(DRESSES_CONTAINER_LOCATOR);
     }
 
     public void doShoppingFlow(){
@@ -55,7 +55,7 @@ public class SummerDressPage implements Pageable {
     }
 
     public static void setPriceAfterDiscount() {
-        priceAfterDiscount = SeleniumDecorator.getInstance().getDriver().findElement(PRODUCT_PRICE_LOCATOR).getText();
+        priceAfterDiscount = driver.findElement(PRODUCT_PRICE_LOCATOR).getText();
     }
 
     @Override

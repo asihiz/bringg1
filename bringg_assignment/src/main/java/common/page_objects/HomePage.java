@@ -19,7 +19,7 @@ public class HomePage implements Pageable {
 
     @Override
     public void prepareElements() {
-//        signIn = SeleniumDecorator.getInstance().getDriver().findElement(SIGN_IN_LOCATOR);
+//        signIn = driver.findElement(SIGN_IN_LOCATOR);
     }
 
 

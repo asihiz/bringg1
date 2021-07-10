@@ -14,23 +14,23 @@ import java.util.Set;
 
 public final class SeleniumDecorator implements WebDriver{
 
-        private static final SeleniumDecorator INSTANCE = new SeleniumDecorator();
-        private final static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(SeleniumDecorator.class);
+    private static final SeleniumDecorator INSTANCE = new SeleniumDecorator();
+    private final static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(SeleniumDecorator.class);
 
-        private WebDriver driver;
+    private WebDriver driver;
 
-        private SeleniumDecorator() {
-            // Avoid reflection calls on Singleton(
-            // Private constructor can be called by reflection
-            // Solves thread safe issues
-            if(INSTANCE != null){
-                return;
-            }
+    private SeleniumDecorator() {
+        // Avoid reflection calls on Singleton(
+        // Private constructor can be called by reflection
+        // Solves thread safe issues
+        if(INSTANCE != null){
+            return;
         }
+    }
 
-        public static SeleniumDecorator getInstance(){
-            return INSTANCE;
-        }
+    public static SeleniumDecorator getInstance(){
+        return INSTANCE;
+    }
 
     public  <T extends WebDriver> void setDriver(T driver) {
         this.driver = driver;

@@ -22,7 +22,7 @@ public class DriversPage implements Pageable {
 
     @Override
     public void prepareElements() {
-        teams = SeleniumDecorator.getInstance().getDriver().findElement(TEAM_LOCATOR);
+        teams = driver.findElement(TEAM_LOCATOR);
     }
 
     public final void addTeam(){

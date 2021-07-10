@@ -26,9 +26,9 @@ public class LoginPage implements Pageable, Pollable {
 
     @Override
     public void prepareElements() {
-        email = SeleniumDecorator.getInstance().getDriver().findElement(EMAIL_LOCATOR);
-        password = SeleniumDecorator.getInstance().getDriver().findElement(PASSWORD_LOCATOR);
-        singIn = SeleniumDecorator.getInstance().getDriver().findElement(SIGN_IN_LOCATOR);
+        email = driver.findElement(EMAIL_LOCATOR);
+        password = driver.findElement(PASSWORD_LOCATOR);
+        singIn = driver.findElement(SIGN_IN_LOCATOR);
     }
 
     public final void login(final String email, final String password){

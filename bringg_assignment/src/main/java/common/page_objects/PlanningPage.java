@@ -21,7 +21,7 @@ public class PlanningPage implements Pageable {
 
     @Override
     public void prepareElements() {
-        addOrder = SeleniumDecorator.getInstance().getDriver().findElement(ADD_ORDER_LOCATOR);
+        addOrder = driver.findElement(ADD_ORDER_LOCATOR);
     }
 
     public final void addOrder(){

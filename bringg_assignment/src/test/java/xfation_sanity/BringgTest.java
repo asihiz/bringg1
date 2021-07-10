@@ -3,7 +3,6 @@ package xfation_sanity;
 import common.building_blocks.BringgUIService;
 import common.page_objects.AddDriverPage;
 import common.page_objects.LandingPage;
-import common.page_objects.ShoppingStoreMenu;
 import common.selenium_services.driver.SeleniumDriver;
 import common.selenium_services.page.PageFactory;
 import common.test.BaseTest;
