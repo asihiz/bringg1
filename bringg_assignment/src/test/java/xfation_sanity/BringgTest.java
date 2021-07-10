@@ -50,6 +50,7 @@ public class BringgTest extends BaseTest {
         bringgUIService.clickHeader(LandingPage.HeaderItem.DRIVERS);
         bringgUIService.addTeam("New Item", "64444, Saudi Arabia");
         bringgUIService.verifyTeam("New Item", "64444, Saudi Arabia");
+        int a = 0;
     }
 
     @Test
