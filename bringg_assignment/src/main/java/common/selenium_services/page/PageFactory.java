@@ -31,11 +31,11 @@ public final class PageFactory implements PageVerifiable {
         LOGIN (LoginPage.class, true),
         LANDING (LandingPage.class, true),
         SETTING (SettingsPage.class, true),
-        ADD_ITEM (AddItemPage.class, true),
+        ADD_TEAM(AddTeamPage.class, false),
         DRIVERS (DriversPage.class, true),
-        ADD_DRIVER(AddDriverPage.class, true),
+        ADD_DRIVER(AddDriverPage.class, false),
         PLANNING (PlanningPage.class, true),
-        ADD_ORDER(AddOrderPage.class, true);
+        ADD_ORDER(AddOrderPage.class, false);
 
         private Class<? extends Pageable> clazz;
         private boolean isValidateOnPage;

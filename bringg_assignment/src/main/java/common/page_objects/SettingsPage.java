@@ -14,12 +14,6 @@ public class SettingsPage implements Pageable {
 
     private WebElement clean;
     private WebElement merchantConf;
-    private WebElement goPlanning;
-    private WebElement goPlanning2;
-    private WebElement goPlanning3;
-
-    private WebElement update;
-
 
     public SettingsPage(){
 

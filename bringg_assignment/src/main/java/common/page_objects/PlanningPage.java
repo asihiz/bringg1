@@ -34,6 +34,6 @@ public class PlanningPage implements Pageable {
 
     @Override
     public String getPageUniqueIdentifier() {
-        return "https://app.bringg.com/#/login/";
+        return "https://app.bringg.com/#/planning/";
     }
 }

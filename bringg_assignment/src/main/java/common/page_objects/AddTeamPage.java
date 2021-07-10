@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AddItemPage implements Pageable {
+public class AddTeamPage implements Pageable {
 
     private static final By NAME_LOCATOR = By.id("teamName");
     private static final By ADDRESS_LOCATOR = By.cssSelector("#teamAddress > div.ui-select-match.ng-scope");
@@ -19,7 +19,7 @@ public class AddItemPage implements Pageable {
     private WebElement address;
     private WebElement add;
 
-    public AddItemPage(){
+    public AddTeamPage(){
 
     }
 
@@ -39,6 +39,6 @@ public class AddItemPage implements Pageable {
 
     @Override
     public String getPageUniqueIdentifier() {
-        return "https://app.bringg.com/#/login/";
+        return "";
     }
 }

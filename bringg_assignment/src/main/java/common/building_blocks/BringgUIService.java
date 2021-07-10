@@ -21,7 +21,7 @@ public class BringgUIService {
 
     private DriversPage driversPage;
 
-    private AddItemPage addItemPage;
+    private AddTeamPage addTeamPage;
 
     private AddDriverPage addDriverPage;
 
@@ -66,8 +66,8 @@ public class BringgUIService {
     public final void addTeam(final String name, final String address) {
         driversPage = pageFactory.createPage(PageFactory.Page.DRIVERS);
         driversPage.addTeam();
-        addItemPage = pageFactory.createPage(PageFactory.Page.ADD_ITEM);
-        addItemPage.addTeam(name, address);
+        addTeamPage = pageFactory.createPage(PageFactory.Page.ADD_TEAM);
+        addTeamPage.addTeam(name, address);
     }
 
     public final void verifyTeam(final String name, final String address) {
