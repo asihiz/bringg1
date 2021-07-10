@@ -15,8 +15,6 @@ public class BringgUIService {
 
     private LoginPage loginPage;
 
-    private HomePage homePage;
-
     private LandingPage landingPage;
 
     private SettingsPage settingsPage;
@@ -26,6 +24,10 @@ public class BringgUIService {
     private AddItemPage addItemPage;
 
     private AddDriverPage addDriverPage;
+
+    private PlanningPage planningPage;
+
+    private AddOrderPage addOrderPage;
 
     private BringgUIService() {
         // Avoid reflection calls on Singleton(
@@ -78,6 +80,18 @@ public class BringgUIService {
         driversPage.addDriver();
         addDriverPage = pageFactory.createPage(PageFactory.Page.ADD_DRIVER);
         addDriverPage.addDriver(username, password, driverName, vo);
+    }
+
+    public final void addOrder(String title, String team, String driver, String address){
+        planningPage = pageFactory.createPage(PageFactory.Page.PLANNING);
+        planningPage.addOrder();
+        addOrderPage = pageFactory.createPage(PageFactory.Page.ADD_ORDER);
+        addOrderPage.addOrder(title, team, driver, address);
+    }
+
+    public final void verifyOrder() {
+        planningPage = pageFactory.createPage(PageFactory.Page.PLANNING);
+        planningPage.verifyOrder();
     }
 
 

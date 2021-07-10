@@ -50,7 +50,7 @@ public class AddDriverPage implements Pageable {
         decorator.handleDropDown(dropdown, LIST_ITEM_LOCATOR, vo.value);
         decorator.clear(this.username).senkKeys(this.username, username);
         decorator.clear(this.password).senkKeys(this.password, password);
-
+        add.click();
     }
 
 

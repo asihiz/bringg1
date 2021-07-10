@@ -59,17 +59,17 @@ public class BringgTest extends BaseTest {
         bringgUIService.addDriver(CLIENT_USER, CLIENT_PASSWORD, "Asi the driver", AddDriverPage.ValidatorOption.EMAIL_PASSWORD);
     }
 
-
-//    @Test
-//    public void doShoppingFlowTest() {
-//        xFashionUIService.signUp(CLIENT_USER, CLIENT_PASSWORD);
-//        xFashionUIService.enterSummerDressMenu(ShoppingStoreMenu.ShopMenu.WOMEN);
-//        xFashionUIService.doShoppingFlow();
-//        xFashionUIService.approvePurchaseDiscount();
-//    }
+    @Test
+    public void createNewOrderTest() {
+        bringgUIService.login(CLIENT_USER, CLIENT_PASSWORD);
+        bringgUIService.clickHeader(LandingPage.HeaderItem.PLANNING);
+        bringgUIService.addOrder("New Order", "New", "Asi2", "64444, Saudi Arabia");
+        bringgUIService.verifyOrder();
+    }
 
     @After
     public void tearDown()  {
+
         super.closeDriver();
     }
 

@@ -27,14 +27,14 @@ public final class PageFactory implements PageVerifiable {
 
     public enum Page {
 
-        HOME (HomePage.class, true),
         LOGIN (LoginPage.class, true),
         LANDING (LandingPage.class, true),
         SETTING (SettingsPage.class, true),
         ADD_ITEM (AddItemPage.class, true),
         DRIVERS (DriversPage.class, true),
-        ADD_DRIVER (AddDriverPage.class, true);
-//        PURCHASE_APPROVAL (purchaseApprovalPage.class, false);
+        ADD_DRIVER(AddDriverPage.class, true),
+        PLANNING (PlanningPage.class, true),
+        ADD_ORDER(AddOrderPage.class, true);
 
         private Class<? extends Pageable> clazz;
         private boolean isValidateOnPage;

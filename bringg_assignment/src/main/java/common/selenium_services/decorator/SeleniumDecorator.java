@@ -4,6 +4,7 @@ import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -70,12 +71,12 @@ public final class SeleniumDecorator implements WebDriver{
     public void handleDropDown(WebElement ddl, By listItemLocator, String value){
         ddl.click();
         WebElement item = findElementByTextInList(listItemLocator, value);
-        waitForElement(item);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        waitForVisibility(item);
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         item.click();
     }
 
@@ -114,6 +115,12 @@ public final class SeleniumDecorator implements WebDriver{
             }
         });
 
+    }
+
+    public void waitForVisibility(WebElement we) {
+
+        WebDriverWait wait = new WebDriverWait(driver, 10000L);
+        wait.until(ExpectedConditions.visibilityOf(we));
     }
 
     public SeleniumDecorator clear(WebElement we){
