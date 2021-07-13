@@ -4,6 +4,7 @@ import common.selenium_services.decorator.SeleniumDecorator;
 import common.selenium_services.page.Pageable;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class PlanningPage implements Pageable {
@@ -12,8 +13,10 @@ public class PlanningPage implements Pageable {
 
     private static final By TABLE_ROW_LOCATOR = By.className("odd");
 
-
     private WebElement addOrder;
+
+    private WebDriver driver = SeleniumDecorator.getInstance().getDriver();
+
 
     public PlanningPage(){
 

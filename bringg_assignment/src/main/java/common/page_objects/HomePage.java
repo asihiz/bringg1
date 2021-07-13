@@ -4,6 +4,7 @@ import common.selenium_services.decorator.SeleniumDecorator;
 import common.selenium_services.page.Pageable;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class HomePage implements Pageable {
@@ -13,6 +14,9 @@ public class HomePage implements Pageable {
 //    private WebElement signIn;
 
     private final static Logger logger = Logger.getLogger(HomePage.class);
+
+    private WebDriver driver = SeleniumDecorator.getInstance().getDriver();
+
 
     public HomePage(){
     }

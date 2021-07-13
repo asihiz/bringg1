@@ -4,6 +4,7 @@ import common.selenium_services.decorator.SeleniumDecorator;
 import common.selenium_services.page.Pageable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,19 +23,23 @@ public class AddOrderPage implements Pageable {
     private WebElement address;
     private WebElement add;
 
+    private WebDriver webDriver = SeleniumDecorator.getInstance().getDriver();
+
+
     public AddOrderPage(){
 
     }
 
     @Override
     public void prepareElements() {
-        title = driver.findElement(TITLE_LOCATOR);
-        team = driver.findElement(TEAM_LOCATOR);
-        address = driver.findElement(ADDRESS_LOCATOR);
-        add = driver.findElement(ADD_ORDER_LOCATOR);
+        title = webDriver.findElement(TITLE_LOCATOR);
+        team = webDriver.findElement(TEAM_LOCATOR);
+        address = webDriver.findElement(ADDRESS_LOCATOR);
+        add = webDriver.findElement(ADD_ORDER_LOCATOR);
     }
 
     public final void addOrder(String title, String team, String driver, String address){
+
 
         decorator.clear(this.title).senkKeys(this.title, title);
         decorator.clear(this.team).senkKeys(this.team, team);

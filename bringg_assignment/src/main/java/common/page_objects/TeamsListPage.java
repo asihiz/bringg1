@@ -3,6 +3,7 @@ package common.page_objects;
 import common.selenium_services.decorator.SeleniumDecorator;
 import common.selenium_services.page.Pageable;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class TeamsListPage implements Pageable {
@@ -11,10 +12,12 @@ public class TeamsListPage implements Pageable {
     private static final By PASSWORD_LOCATOR = By.id("inputPassword");
     private static final By SIGN_IN_LOCATOR = By.id("userPassword");
 
-
     private WebElement email;
     private WebElement password;
     private WebElement singIn;
+
+    private WebDriver driver = SeleniumDecorator.getInstance().getDriver();
+
 
     public TeamsListPage(){
 

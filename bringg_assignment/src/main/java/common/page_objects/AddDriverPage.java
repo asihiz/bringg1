@@ -4,6 +4,7 @@ import common.selenium_services.decorator.SeleniumDecorator;
 import common.selenium_services.page.Pageable;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class AddDriverPage implements Pageable {
@@ -21,6 +22,9 @@ public class AddDriverPage implements Pageable {
     private WebElement add;
     private WebElement username;
     private WebElement password;
+
+    private WebDriver driver = SeleniumDecorator.getInstance().getDriver();
+
 
     public AddDriverPage(){
 
@@ -42,6 +46,11 @@ public class AddDriverPage implements Pageable {
         decorator.clear(this.username).senkKeys(this.username, username);
         decorator.clear(this.password).senkKeys(this.password, password);
         add.click();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         driver.findElement(CREATED_LOCATOR2).click();
     }
 

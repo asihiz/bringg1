@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 public interface Pageable {
 
-    public SeleniumDecorator decorator = SeleniumDecorator.getInstance();
+    SeleniumDecorator decorator = SeleniumDecorator.getInstance();
 
     WebDriver driver = decorator.getDriver();
 

@@ -4,6 +4,7 @@ import common.selenium_services.decorator.SeleniumDecorator;
 import common.selenium_services.page.Pageable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import util.general_util.GeneralUtils;
@@ -14,7 +15,7 @@ public class LoginPage implements Pageable, Pollable {
     private static final By EMAIL_LOCATOR = By.id("inputEmail");
     private static final By PASSWORD_LOCATOR = By.id("inputPassword");
     private static final By SIGN_IN_LOCATOR = By.id("userPassword");
-
+    private WebDriver driver = SeleniumDecorator.getInstance().getDriver();
 
     private WebElement email;
     private WebElement password;
@@ -32,7 +33,8 @@ public class LoginPage implements Pageable, Pollable {
     }
 
     public final void login(final String email, final String password){
-        decorator.clear(this.email).senkKeys(this.email, email);
+
+        this.email.sendKeys(email);
         decorator.clear(this.password).senkKeys(this.password, password);
         singIn.click();
         try {

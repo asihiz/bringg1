@@ -3,6 +3,7 @@ package common.page_objects;
 import common.selenium_services.decorator.SeleniumDecorator;
 import common.selenium_services.page.Pageable;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class CreateNewPage implements Pageable {
@@ -15,6 +16,9 @@ public class CreateNewPage implements Pageable {
     private WebElement email;
     private WebElement password;
     private WebElement singIn;
+
+    private WebDriver driver = SeleniumDecorator.getInstance().getDriver();
+
 
     public CreateNewPage(){
 

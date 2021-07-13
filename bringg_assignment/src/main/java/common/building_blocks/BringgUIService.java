@@ -48,9 +48,9 @@ public class BringgUIService {
         loginPage.login(email, password);
     }
 
-    public final void enterSetting(String value) {
+    public final void enterProfile(LandingPage.ProfileItem item){
         landingPage = pageFactory.createPage(PageFactory.Page.LANDING);
-        landingPage.enterSetting(value);
+        landingPage.enterProfile(item);
     }
 
     public final void clickHeader(LandingPage.HeaderItem headerItem) {
@@ -70,7 +70,8 @@ public class BringgUIService {
         addTeamPage.addTeam(name, address);
     }
 
-    public final void verifyTeam(final String name, final String address) {
+    public final void
+    verifyTeam(final String name, final String address) {
         driversPage = pageFactory.createPage(PageFactory.Page.DRIVERS);
         driversPage.verifyTeamWasAdded(name, address);
     }

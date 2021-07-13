@@ -11,7 +11,6 @@ public final class PageFactory implements PageVerifiable {
 
     public <T extends Pageable> T createPage(Page page) {
 
-
         T instance = null;
         try {
             instance = (T) page.getClazz().newInstance();

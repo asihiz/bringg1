@@ -4,6 +4,7 @@ import common.selenium_services.decorator.SeleniumDecorator;
 import common.selenium_services.page.Pageable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -18,6 +19,9 @@ public class AddTeamPage implements Pageable {
     private WebElement name;
     private WebElement address;
     private WebElement add;
+
+    private WebDriver driver = SeleniumDecorator.getInstance().getDriver();
+
 
     public AddTeamPage(){
 

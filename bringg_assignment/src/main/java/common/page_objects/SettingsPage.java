@@ -1,8 +1,10 @@
 package common.page_objects;
 
+import common.selenium_services.decorator.SeleniumDecorator;
 import common.selenium_services.page.Pageable;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class SettingsPage implements Pageable {
@@ -14,6 +16,9 @@ public class SettingsPage implements Pageable {
 
     private WebElement clean;
     private WebElement merchantConf;
+
+    private WebDriver driver = SeleniumDecorator.getInstance().getDriver();
+
 
     public SettingsPage(){
 

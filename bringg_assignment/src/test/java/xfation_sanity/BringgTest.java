@@ -42,7 +42,7 @@ public class BringgTest extends BaseTest {
     @Test
     public void cleenUpAccountTest() {
         bringgUIService.login(CLIENT_USER, CLIENT_PASSWORD);
-        bringgUIService.enterSetting("Settings");
+        bringgUIService.enterProfile(LandingPage.ProfileItem.SETTING);
         bringgUIService.cleanAccount();
     }
 
@@ -79,14 +79,14 @@ public class BringgTest extends BaseTest {
 
     @After
     public void tearDown()  {
-
+//        bringgUIService.enterProfile(LandingPage.ProfileItem.LOG_OUT);
         super.closeDriver();
     }
 
     @AfterClass
     public static void after() {
         try {
-            SeleniumDriver.getInstance().close();
+//            bringgUIService.enterProfile(LandingPage.ProfileItem.SETTING);
         } catch (Exception e) {
 
         }
