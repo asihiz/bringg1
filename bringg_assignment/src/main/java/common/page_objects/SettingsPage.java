@@ -34,7 +34,9 @@ public class SettingsPage implements Pageable {
         decorator.scrollElement(clean).click();
         driver.switchTo().alert().accept();
         decorator.scrollElement(merchantConf).click();
-        decorator.scrollElement(driver.findElement(DO_PLANNING)).click();
+        if(!decorator.scrollElement(driver.findElement(DO_PLANNING)).isSelected()) {
+            decorator.scrollElement(driver.findElement(DO_PLANNING)).click();
+        }
         decorator.scrollElement(driver.findElement(UPDATE_LOCATOR)).click();
         driver.navigate().refresh();
         Assert.assertEquals(driver.findElement(DO_PLANNING).isSelected(), true);
