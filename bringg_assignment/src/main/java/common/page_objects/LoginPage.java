@@ -57,10 +57,6 @@ public class LoginPage implements Pageable, Pollable {
         } catch (Exception e){
             return false;
         }
-//        if(driver.getCurrentUrl().equalsIgnoreCase("https://app.bringg.com/#/map/")){
-//            return true;
-//        }
-//        return false;
 
     }
 

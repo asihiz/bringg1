@@ -6,8 +6,10 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import util.general_util.GeneralUtils;
+import util.poller.Pollable;
 
-public class AddDriverPage implements Pageable {
+public class AddDriverPage implements Pageable , Pollable {
 
     private static final By VALIDATOR_METHOD_LOCATOR = By.className("dropdown-toggle");
     private static final By LIST_ITEM_LOCATOR = By.className("ng-binding");
@@ -47,11 +49,22 @@ public class AddDriverPage implements Pageable {
         decorator.clear(this.password).senkKeys(this.password, password);
         add.click();
         try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            Pollable.super.waitUntil(10000, 1000, "cant verify driver was added");
+        } catch (Exception e){
+            GeneralUtils.reportError("cant click on register exceptio", e);
         }
-        driver.findElement(CREATED_LOCATOR2).click();
+    }
+
+    @Override
+    public boolean until() throws Exception {
+        try {
+            Thread.sleep(1000);
+            driver.findElement(CREATED_LOCATOR2).click();
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+
     }
 
 
