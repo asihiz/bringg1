@@ -37,48 +37,11 @@ public class AddOrderPage implements Pageable {
     }
 
     public final void addOrder(String title, String team, String driverName, String address){
-
-
         decorator.clear(this.title).senkKeys(this.title, title);
         decorator.doAutoComplete(this.team, team);
-
-//        decorator.clear(this.team).senkKeys(this.team, team);
-//        this.team.sendKeys(Keys.ENTER);
-
-
-
-//        WebDriverWait wait1 = new WebDriverWait(webDriver, 10);
-//        WebElement element1 = wait1.until(ExpectedConditions.elementToBeClickable(DRIVER_NAME_LOCATOR));
-//        element1.sendKeys(driverName);
-
-//        this.driver = decorator.getDriver().findElement(DRIVER_NAME_LOCATOR);
         decorator.doAutoComplete(webDriver.findElement(DRIVER_NAME_LOCATOR), driverName);
-//        this.driver.click();
-//        webDriver.switchTo().activeElement().sendKeys(driverName);
-//        webDriver.switchTo().activeElement().sendKeys(Keys.ENTER);
-
-
-
-//        executor.executeScript("arguments[0].click();", this.address);
-
-
-
-
-
-//        this.address.click();
-//        webDriver.switchTo().activeElement().sendKeys(address);
-//        webDriver.switchTo().activeElement().sendKeys(Keys.ENTER);
         decorator.doJavaScriptAutoComplete(this.address, address);
-
-//        this.driver.sendKeys(Keys.ENTER);
-
-//        decorator.clear(this.address).senkKeys(this.address, address);
-//        this.address.sendKeys(Keys.ENTER);
-//        executor.executeScript("arguments[0].click();", this.add);
-//        webDriver.switchTo().activeElement().sendKeys(Keys.ENTER);
-
-            add.click();
-
+        add.click();
     }
 
 

@@ -71,7 +71,7 @@ public class BringgTest extends BaseTest {
     public void createNewOrderTest() {
         bringgUIService.login(CLIENT_USER, CLIENT_PASSWORD);
         bringgUIService.clickHeader(LandingPage.HeaderItem.PLANNING);
-        bringgUIService.addOrder("New Order", "Test Team", "Asi2", "64444, Saudi Arabia");
+        bringgUIService.addOrder("New Order", "New Item", "Asi2", "64444, Saudi Arabia");
         bringgUIService.verifyOrder();
         bringgUIService.clean(CleanOrdersPage.MoreAction.CANCEL_ORDERS);
     }
