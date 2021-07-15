@@ -4,9 +4,7 @@ import common.selenium_services.decorator.SeleniumDecorator;
 import common.selenium_services.page.Pageable;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static sun.plugin.javascript.navig.JSType.Element;
 
 public class AddOrderPage implements Pageable {
 
@@ -42,7 +40,7 @@ public class AddOrderPage implements Pageable {
 
 
         decorator.clear(this.title).senkKeys(this.title, title);
-        decorator.doAutoComplete(this.team, driverName);
+        decorator.doAutoComplete(this.team, team);
 
 //        decorator.clear(this.team).senkKeys(this.team, team);
 //        this.team.sendKeys(Keys.ENTER);

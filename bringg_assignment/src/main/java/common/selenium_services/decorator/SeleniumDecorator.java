@@ -16,7 +16,6 @@ public final class SeleniumDecorator implements WebDriver{
 
     private static final SeleniumDecorator INSTANCE = new SeleniumDecorator();
     private final static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(SeleniumDecorator.class);
-    private JavascriptExecutor executor = (JavascriptExecutor)SeleniumDecorator.getInstance().getDriver();
     private WebDriver driver;
 
     private SeleniumDecorator() {
@@ -93,6 +92,8 @@ public final class SeleniumDecorator implements WebDriver{
     }
 
     public void doJavaScriptAutoComplete(WebElement field, String text) {
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+
         try {
             executor.executeScript("arguments[0].click();", field);
             Thread.sleep(1000);
