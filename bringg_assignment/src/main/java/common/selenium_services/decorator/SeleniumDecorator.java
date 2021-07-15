@@ -16,7 +16,7 @@ public final class SeleniumDecorator implements WebDriver{
 
     private static final SeleniumDecorator INSTANCE = new SeleniumDecorator();
     private final static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(SeleniumDecorator.class);
-
+    private JavascriptExecutor executor = (JavascriptExecutor)SeleniumDecorator.getInstance().getDriver();
     private WebDriver driver;
 
     private SeleniumDecorator() {
@@ -80,11 +80,39 @@ public final class SeleniumDecorator implements WebDriver{
         item.click();
     }
 
+    public void doAutoComplete(WebElement field, String text) {
+        try {
+            field.click();
+            Thread.sleep(1000);
+            driver.switchTo().activeElement().sendKeys(text);
+            Thread.sleep(1500);
+            driver.switchTo().activeElement().sendKeys(Keys.ENTER);
+        } catch (Exception e){
+
+        }
+    }
+
+    public void doJavaScriptAutoComplete(WebElement field, String text) {
+        try {
+            executor.executeScript("arguments[0].click();", field);
+            Thread.sleep(1000);
+            driver.switchTo().activeElement().sendKeys(text);
+            Thread.sleep(1500);
+            driver.switchTo().activeElement().sendKeys(Keys.ENTER);
+        } catch (Exception e){
+
+        }
+    }
+
+
+
     public void handleDropDown(WebElement _ddl, String value){
         _ddl.click();
         Select ddl = new Select(_ddl);
         ddl.selectByValue(value);
     }
+
+
 
     public void scroll(WebElement element){
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);

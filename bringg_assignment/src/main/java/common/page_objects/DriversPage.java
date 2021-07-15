@@ -34,7 +34,12 @@ public class DriversPage implements Pageable {
         driver.findElement(ADD_TEAM).click();
     }
 
+    public final void goToTeams(){
+        teams.click();
+    }
+
     public final void verifyTeamWasAdded(final String name, final String address){
+        driver.navigate().refresh();
         Assert.assertTrue(decorator.isTextAppears(name));
         Assert.assertTrue(decorator.isTextAppears(address));
     }

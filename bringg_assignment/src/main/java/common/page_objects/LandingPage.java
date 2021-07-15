@@ -38,7 +38,7 @@ public class LandingPage implements Pageable {
     public enum HeaderItem {
 
         DRIVERS (By.linkText("Drivers")),
-        PLANNING (By.linkText("Dispatch"));
+        PLANNING (By.linkText("Planning"));
 
         private By locator;
 

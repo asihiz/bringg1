@@ -34,7 +34,9 @@ public final class PageFactory implements PageVerifiable {
         DRIVERS (DriversPage.class, true),
         ADD_DRIVER(AddDriverPage.class, false),
         PLANNING (PlanningPage.class, true),
-        ADD_ORDER(AddOrderPage.class, false);
+        ADD_ORDER(AddOrderPage.class, false),
+        CLEAN_ORDER(CleanOrdersPage.class, false),
+        ;
 
         private Class<? extends Pageable> clazz;
         private boolean isValidateOnPage;

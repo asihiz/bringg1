@@ -2,6 +2,7 @@ package xfation_sanity;
 
 import common.building_blocks.BringgUIService;
 import common.page_objects.AddDriverPage;
+import common.page_objects.CleanOrdersPage;
 import common.page_objects.LandingPage;
 import common.selenium_services.driver.SeleniumDriver;
 import common.selenium_services.page.PageFactory;
@@ -10,9 +11,7 @@ import org.junit.*;
 import org.junit.runners.MethodSorters;
 import util.general_util.GeneralUtils;
 
-/**
- * Created by asi on 2/19/2017.
- */
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class BringgTest extends BaseTest {
 
@@ -21,7 +20,6 @@ public class BringgTest extends BaseTest {
     private PageFactory pageFactory = new PageFactory();
 
     private Integer numberOfDrivers = 2;
-
 
     @BeforeClass
     public static void beforeClass ()  {
@@ -73,8 +71,9 @@ public class BringgTest extends BaseTest {
     public void createNewOrderTest() {
         bringgUIService.login(CLIENT_USER, CLIENT_PASSWORD);
         bringgUIService.clickHeader(LandingPage.HeaderItem.PLANNING);
-        bringgUIService.addOrder("New Order", "New", "Asi2", "64444, Saudi Arabia");
+        bringgUIService.addOrder("New Order", "Test Team", "Asi2", "64444, Saudi Arabia");
         bringgUIService.verifyOrder();
+        bringgUIService.clean(CleanOrdersPage.MoreAction.CANCEL_ORDERS);
     }
 
     @After

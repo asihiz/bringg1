@@ -29,6 +29,9 @@ public class BringgUIService {
 
     private AddOrderPage addOrderPage;
 
+    private CleanOrdersPage cleanOrdersPage;
+
+
     private BringgUIService() {
         // Avoid reflection calls on Singleton(
         // Private constructor can be called by reflection
@@ -63,17 +66,21 @@ public class BringgUIService {
         settingsPage.cleanAccount();
     }
 
-    public final void addTeam(final String name, final String address) {
+    public final void       addTeam(final String name, final String address) {
         driversPage = pageFactory.createPage(PageFactory.Page.DRIVERS);
         driversPage.addTeam();
         addTeamPage = pageFactory.createPage(PageFactory.Page.ADD_TEAM);
         addTeamPage.addTeam(name, address);
     }
 
-    public final void
-    verifyTeam(final String name, final String address) {
+    public final void verifyTeam(final String name, final String address) {
         driversPage = pageFactory.createPage(PageFactory.Page.DRIVERS);
         driversPage.verifyTeamWasAdded(name, address);
+    }
+
+    public final void goToTeam() {
+        driversPage = pageFactory.createPage(PageFactory.Page.DRIVERS);
+        driversPage.goToTeams();
     }
 
     public final void addDriver(String username, String password, String driverName, AddDriverPage.ValidatorOption vo){
@@ -98,6 +105,11 @@ public class BringgUIService {
     public final void verifyOrder() {
         planningPage = pageFactory.createPage(PageFactory.Page.PLANNING);
         planningPage.verifyOrder();
+    }
+
+    public final void clean(CleanOrdersPage.MoreAction moreAction) {
+        cleanOrdersPage = pageFactory.createPage(PageFactory.Page.CLEAN_ORDER);
+        cleanOrdersPage.clean(moreAction);
     }
 
 
