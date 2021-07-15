@@ -28,30 +28,12 @@ public class AddTeamPage implements Pageable {
     public void prepareElements() {
         name = driver.findElement(NAME_LOCATOR);
         address = driver.findElement(ADDRESS_LOCATOR);
-
         add = driver.findElement(ADD_LOCATOR);
     }
 
     public final void addTeam(final String name, final String address){
         decorator.clear(this.name).senkKeys(this.name, name);
-//        JavascriptExecutor jse = ((JavascriptExecutor)driver);
-
-//        String js = "arguments[0].setAttribute('value','"+address+"')";
-//        jse.executeScript("arguments[0].value='---your email id---';", this.address);
-//        jse.executeScript("document.getElementById('elementID').setAttribute('value', 'new value for element')");
-
-//        jse.executeScript("arguments[0].setAttribute('value', '" + "aaaaaaaaaaaaaaaaaaaaaaaaaaa" +"')", this.address);
-
-
-//        ((JavascriptExecutor) driver).executeScript(js, this.address);
-
-//        decorator.senkKeys(this.address, address);
         decorator.doAutoComplete(this.address, address);
-//        this.address.click();
-//        driver.switchTo().activeElement().sendKeys(address);
-//        driver.switchTo().activeElement().sendKeys(Keys.ENTER);
-
-//        this.address.sendKeys(Keys.ENTER);
         add.click();
     }
 

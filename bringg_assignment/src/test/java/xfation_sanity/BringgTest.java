@@ -68,17 +68,16 @@ public class BringgTest extends BaseTest {
     }
 
     @Test
-    public void createNewOrderTest() {
+    public void acreateNewOrderTest() {
         bringgUIService.login(CLIENT_USER, CLIENT_PASSWORD);
         bringgUIService.clickHeader(LandingPage.HeaderItem.PLANNING);
-        bringgUIService.addOrder("New Order", "New Item", "Asi2", "64444, Saudi Arabia");
+        bringgUIService.addOrder("New Order", "New Ite", "Asi2", "64444, Saudi Arabia");
         bringgUIService.verifyOrder();
         bringgUIService.clean(CleanOrdersPage.MoreAction.CANCEL_ORDERS);
     }
 
     @After
     public void tearDown()  {
-//        bringgUIService.enterProfile(LandingPage.ProfileItem.LOG_OUT);
         super.closeDriver();
     }
 

@@ -29,17 +29,8 @@ public class CleanOrdersPage implements Pageable {
 
     private List<WebElement> tableCheckBox = new ArrayList<>();
 
-
+    private WebElement selectAll;
     private WebElement classElement;
-
-
-
-
-
-//    private static final By TABLE_ROW_LOCATOR = By.className("odd");
-
-//    private static final By TABLE_ROW_LOCATOR2 = By.className("even");
-
 
     private WebElement addOrder;
 
@@ -50,9 +41,9 @@ public class CleanOrdersPage implements Pageable {
 
     }
 
-//    @Override
+    @Override
     public void prepareElements() {
-//        tableCheckBox = driver.findElements(TABLE_LINE_MARK_ITEM);
+        selectAll = driver.findElement(SELECT_ALL);
     }
 
     public final void clean(MoreAction moreAction) {
@@ -61,20 +52,7 @@ public class CleanOrdersPage implements Pageable {
     }
 
     public final void selectLine(){
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        driver.findElement(SELECT_ALL).click();
-//        for (WebElement we : tableCheckBox){
-//            classElement = we;
-//            try {
-//                Pollable.super.waitUntil(10000, 1000, "cant click on check box");
-//            } catch (Exception e){
-//                GeneralUtils.reportError("cant click on register exceptio", e);
-//            }
-//        }
+        selectAll.click();
     }
 
     public final void doMoreActions(MoreAction moreAction){
@@ -84,34 +62,7 @@ public class CleanOrdersPage implements Pageable {
         reason.sendKeys(Keys.ARROW_DOWN);
         reason.sendKeys(Keys.ENTER);
         driver.findElement(CONFIRM).click();
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
-//        addOrder.click();
     }
-
-
-
-//    @Override
-//    public boolean until() throws Exception {
-//        try {
-//            classElement.click();
-//            return true;
-//        } catch (Exception e){
-//            return false;
-//        }
-//    }
-
-
-
-
-//    public final void verifyOrder(){
-//        Assert.assertEquals("Order doesn't appear in table", 1, driver.findElements(TABLE_ROW_LOCATOR).size() + driver.findElements(TABLE_ROW_LOCATOR2).size());
-//    }
 
     public enum MoreAction {
 
