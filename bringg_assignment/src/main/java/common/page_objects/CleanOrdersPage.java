@@ -43,6 +43,11 @@ public class CleanOrdersPage implements Pageable {
 
     @Override
     public void prepareElements() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            GeneralUtils.reportError("Error in waiting", e);
+        }
         selectAll = driver.findElement(SELECT_ALL);
     }
 
@@ -52,6 +57,7 @@ public class CleanOrdersPage implements Pageable {
     }
 
     public final void selectLine(){
+
         selectAll.click();
     }
 

@@ -8,15 +8,20 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.general_util.GeneralUtils;
+import util.poller.Pollable;
 
 import java.util.List;
 import java.util.Set;
 
-public final class SeleniumDecorator implements WebDriver{
+public final class SeleniumDecorator implements WebDriver , Pollable{
 
     private static final SeleniumDecorator INSTANCE = new SeleniumDecorator();
     private final static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(SeleniumDecorator.class);
     private WebDriver driver;
+//    WebElement ddl;
+//    By listItemLocator;
+//    String value;
+    private WebElement item;
 
     private SeleniumDecorator() {
         // Avoid reflection calls on Singleton(
@@ -228,5 +233,10 @@ public final class SeleniumDecorator implements WebDriver{
     }
 
 
+
+    @Override
+    public boolean until() throws Exception {
+        return false;
+    }
 }
 
