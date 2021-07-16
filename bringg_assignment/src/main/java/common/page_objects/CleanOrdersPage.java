@@ -48,7 +48,7 @@ public class CleanOrdersPage implements Pageable {
         try {
             Thread.sleep(1000);
         } catch (Exception e){
-            GeneralUtils.reportError("Error in clicking select all", e);
+            GeneralUtils.reportError("Error in sleeping", e);
         }
         selectAll = driver.findElement(SELECT_ALL);
     }
@@ -62,6 +62,7 @@ public class CleanOrdersPage implements Pageable {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 10);
             wait.until(ExpectedConditions.elementToBeClickable(selectAll));
+            Thread.sleep(500);
             selectAll.click();
         } catch (Exception e){
             GeneralUtils.reportError("Error in clicking select all", e);
