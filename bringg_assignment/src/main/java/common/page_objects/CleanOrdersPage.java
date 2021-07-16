@@ -54,9 +54,14 @@ public class CleanOrdersPage implements Pageable {
     }
 
     public final void selectLine(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(selectAll));
-        selectAll.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            wait.until(ExpectedConditions.elementToBeClickable(selectAll));
+            Thread.sleep(1000);
+            selectAll.click();
+        } catch (Exception e){
+
+        }
     }
 
     public final void doMoreActions(MoreAction moreAction){
