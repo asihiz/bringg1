@@ -60,7 +60,7 @@ public class CleanOrdersPage implements Pageable {
             Thread.sleep(1000);
             selectAll.click();
         } catch (Exception e){
-
+            GeneralUtils.reportError("Error in clicking select all", e);
         }
     }
 
