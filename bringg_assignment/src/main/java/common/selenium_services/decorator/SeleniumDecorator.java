@@ -13,7 +13,7 @@ import util.poller.Pollable;
 import java.util.List;
 import java.util.Set;
 
-public final class SeleniumDecorator implements WebDriver , Pollable{
+public final class SeleniumDecorator implements WebDriver {
 
     private static final SeleniumDecorator INSTANCE = new SeleniumDecorator();
     private final static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(SeleniumDecorator.class);
@@ -73,15 +73,17 @@ public final class SeleniumDecorator implements WebDriver , Pollable{
     }
 
     public void handleDropDown(WebElement ddl, By listItemLocator, String value){
-
         ddl.click();
         try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            GeneralUtils.reportError("Error in waiting", e);
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            Thread.sleep(500);
+            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(findElementByTextInList(listItemLocator, value)));
+            Thread.sleep(500);
+            element.click();
+        } catch (InterruptedException ie){
+            GeneralUtils.reportError("Interupt error", ie);
         }
-        WebElement item = findElementByTextInList(listItemLocator, value);
-        item.click();
+
     }
 
     public void doAutoComplete(WebElement field, String text) {
@@ -233,10 +235,5 @@ public final class SeleniumDecorator implements WebDriver , Pollable{
     }
 
 
-
-    @Override
-    public boolean until() throws Exception {
-        return false;
-    }
 }
 

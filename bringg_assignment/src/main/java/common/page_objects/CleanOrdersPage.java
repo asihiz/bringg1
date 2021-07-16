@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import util.general_util.GeneralUtils;
 import util.poller.Pollable;
 
@@ -43,11 +45,6 @@ public class CleanOrdersPage implements Pageable {
 
     @Override
     public void prepareElements() {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            GeneralUtils.reportError("Error in waiting", e);
-        }
         selectAll = driver.findElement(SELECT_ALL);
     }
 
@@ -57,7 +54,8 @@ public class CleanOrdersPage implements Pageable {
     }
 
     public final void selectLine(){
-
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(selectAll));
         selectAll.click();
     }
 
